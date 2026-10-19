@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kaalabairava1234-ops.github.io/gauri-portfolio/sitemap.xml
