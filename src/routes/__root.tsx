@@ -12,6 +12,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { type ReactNode } from "react";
 
 import { ABOUT_SHORT, NAME, OG_IMAGE } from "../lib/seo";
+import { withBase } from "../lib/utils";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -104,9 +105,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap",
       },
-      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
-      { rel: "icon", href: "/favicon-32.png", type: "image/png", sizes: "32x32" },
-      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+      { rel: "icon", href: withBase("favicon.svg"), type: "image/svg+xml" },
+      { rel: "icon", href: withBase("favicon-32.png"), type: "image/png", sizes: "32x32" },
+      { rel: "apple-touch-icon", href: withBase("apple-touch-icon.png") },
     ],
     scripts:
       CLOUDFLARE_ANALYTICS_TOKEN && import.meta.env.PROD
@@ -150,8 +151,9 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
-      {/* Vercel Web Analytics: cookie-free page views, sent only from the live site. */}
-      <Analytics />
+      {/* Vercel Web Analytics: cookie-free page views, sent only from the live
+          site. The GitHub Pages build switches it off (it only works on Vercel). */}
+      {import.meta.env["VITE_DISABLE_ANALYTICS"] !== "1" && <Analytics />}
     </QueryClientProvider>
   );
 }

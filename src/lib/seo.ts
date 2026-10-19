@@ -6,10 +6,10 @@ import { EMAIL, LINKEDIN_URL, NAME } from "./content";
 
 export { NAME };
 
-// The address the site is deployed at. Update it (and public/sitemap.xml,
-// public/robots.txt, public/llms.txt) once the real domain is connected, so
-// canonical links and share cards point to the right place.
-export const SITE_URL = "https://gauri-tichkule.vercel.app";
+// The address the site is deployed at (GitHub Pages). If a custom domain is
+// connected later, update it here and in public/sitemap.xml, public/robots.txt
+// and public/llms.txt, so canonical links and share cards point to the right place.
+export const SITE_URL = "https://kaalabairava1234-ops.github.io/gauri-portfolio";
 export const OG_IMAGE = `${SITE_URL}/og.png`;
 
 export const ABOUT_SHORT =

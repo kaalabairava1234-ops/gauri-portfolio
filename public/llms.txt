@@ -2,9 +2,9 @@
 
 > Gauri Tichkule is a marketing professional based in Milton Keynes, United Kingdom, with 4+ years across US national TV planning and buying, digital advertising, B2B marketing, CRM and Answer Engine Optimisation (AEO). She holds an MSc in Strategic Marketing from Cranfield University.
 
-Website: https://gauri-tichkule.vercel.app
+Website: https://kaalabairava1234-ops.github.io/gauri-portfolio
 Email: gauritichkule@gmail.com
-CV: https://gauri-tichkule.vercel.app/Gauri_Tichkule_CV.pdf
+CV: https://kaalabairava1234-ops.github.io/gauri-portfolio/Gauri_Tichkule_CV.pdf
 
 ## Experience
 
@@ -31,5 +31,5 @@ CV: https://gauri-tichkule.vercel.app/Gauri_Tichkule_CV.pdf
 
 ## Pages
 
-- Home (story, impact, case studies, journal, contact): https://gauri-tichkule.vercel.app/
-- Full record (experience, education, skills, leadership): https://gauri-tichkule.vercel.app/work
+- Home (story, impact, case studies, journal, contact): https://kaalabairava1234-ops.github.io/gauri-portfolio/
+- Full record (experience, education, skills, leadership): https://kaalabairava1234-ops.github.io/gauri-portfolio/work

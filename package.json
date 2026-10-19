@@ -7,6 +7,8 @@
     "dev": "vite dev",
     "build": "vite build",
     "build:dev": "vite build --mode development",
+    "build:pages": "BASE_PATH=/gauri-portfolio/ VITE_DISABLE_ANALYTICS=1 vite build",
+    "deploy:pages": "sh scripts/deploy-pages.sh",
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write ."

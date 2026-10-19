@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gauri-tichkule.vercel.app/sitemap.xml
+Sitemap: https://kaalabairava1234-ops.github.io/gauri-portfolio/sitemap.xml

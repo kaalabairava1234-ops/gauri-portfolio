@@ -2,11 +2,13 @@
 // and lives here, so the story, the case studies and the full record never
 // drift apart. Change the words here, not in the pages.
 
+import { withBase } from "./utils";
+
 export const NAME = "Gauri Tichkule";
 export const FIRST_NAME = "Gauri";
 export const EMAIL = "gauritichkule@gmail.com";
 export const LOCATION = "Milton Keynes, United Kingdom";
-export const CV_PATH = "/Gauri_Tichkule_CV.pdf";
+export const CV_PATH = withBase("Gauri_Tichkule_CV.pdf");
 
 // The CV names LinkedIn but the PDF carries no link, so there is no verified
 // URL yet. Paste the full profile URL here (https://www.linkedin.com/in/…)

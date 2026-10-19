@@ -38,7 +38,7 @@ Built on [SomehowLiving/portfolio-template](https://github.com/SomehowLiving/por
 ## Before going live
 
 1. **LinkedIn:** paste the profile URL into `LINKEDIN_URL` in `src/lib/content.ts`. LinkedIn links stay hidden until it's set.
-2. **Domain:** set `SITE_URL` in `src/lib/seo.ts`, and the same address in `public/sitemap.xml`, `public/robots.txt` and `public/llms.txt`.
+2. **Domain:** the site address is set to the GitHub Pages URL. If you connect a custom domain, update `SITE_URL` in `src/lib/seo.ts` and the same address in `public/sitemap.xml`, `public/robots.txt` and `public/llms.txt`.
 3. **CV:** replace `public/Gauri_Tichkule_CV.pdf` whenever the CV changes (keep the file name, or update `CV_PATH`).
 
 ## Run it locally
@@ -51,7 +51,17 @@ npm run build   # production build into .output/
 
 ## Deploy
 
-The project is a TanStack Start app built with Nitro, and deploys to [Vercel](https://vercel.com) with zero configuration: push the repository to GitHub, import it in Vercel, keep the detected settings (build command `npm run build`) and deploy. Vercel Web Analytics is already wired in and only reports on the live site.
+**Live site (GitHub Pages):** https://kaalabairava1234-ops.github.io/gauri-portfolio/
+
+Both pages are pre-rendered to static HTML at build time, so the site runs on GitHub Pages. To publish an update:
+
+```sh
+npm run deploy:pages
+```
+
+This builds the site for the `/gauri-portfolio/` sub-path (`npm run build:pages`) and publishes the result to the `gh-pages` branch, which GitHub Pages serves (Settings → Pages → Deploy from a branch → `gh-pages` / root). Changes go live within a minute or two. Commit and push your source changes to `main` as usual; the `gh-pages` branch only ever holds the built site.
+
+The same project also deploys to [Vercel](https://vercel.com) with zero configuration (import the repo, keep the detected settings). Vercel Web Analytics is wired in for that, and switched off in the GitHub Pages build.
 
 ## Built with
 
