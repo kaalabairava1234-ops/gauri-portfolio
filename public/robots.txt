@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gauri-tichkule.vercel.app/sitemap.xml

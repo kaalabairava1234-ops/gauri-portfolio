@@ -1,0 +1,224 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root block defines the actual color values using oklch. The site is
+ * a single, deliberate dark theme: midnight navy, ivory type, an electric
+ * violet for emphasis and a cool cyan for data highlights.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-hand: "Caveat", cursive;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-background-deep: var(--background-deep);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-cyan: var(--cyan);
+  --color-violet: var(--primary);
+  --color-cursor: var(--cursor);
+  --color-cursor-foreground: var(--cursor-foreground);
+  --color-cursor-border: var(--cursor-border);
+}
+
+:root {
+  color-scheme: dark;
+  --radius: 0.375rem;
+  --background: oklch(0.19 0.025 273); /* #10131F */
+  --background-deep: oklch(0.17 0.02 270); /* #0C0F18 */
+  --surface: oklch(0.237 0.03 269.8); /* #191E2D */
+  --surface-2: oklch(0.276 0.035 269.8); /* #212739 */
+  --foreground: oklch(0.964 0.007 88.6); /* #F5F3EE */
+  --card: var(--surface);
+  --card-foreground: var(--foreground);
+  --popover: var(--surface);
+  --popover-foreground: var(--foreground);
+  --primary: oklch(0.695 0.171 288.8); /* #9B87FF */
+  --primary-foreground: oklch(0.19 0.025 273);
+  --secondary: var(--surface-2);
+  --secondary-foreground: var(--foreground);
+  --muted: var(--surface);
+  --muted-foreground: oklch(0.731 0.029 267.4); /* #A0A8BB */
+  --accent: var(--surface-2);
+  --accent-foreground: var(--foreground);
+  --cyan: oklch(0.827 0.108 212); /* #66D9EF */
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: var(--foreground);
+  --border: oklch(0.316 0.037 269.3); /* #2A3145 */
+  --input: oklch(0.316 0.037 269.3);
+  --ring: oklch(0.695 0.171 288.8);
+  --cursor: oklch(0.695 0.171 288.8);
+  --cursor-foreground: oklch(0.17 0.02 270);
+  --cursor-border: oklch(0.78 0.13 288.8);
+  --ease-out: cubic-bezier(0.22, 0.7, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--background);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  /* Editorial accent: a single italic serif word inside a grotesk headline. */
+  em { font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: 0; }
+  button, a { cursor: pointer; }
+  ::selection { background: color-mix(in oklch, var(--primary) 45%, transparent); color: var(--foreground); }
+  :focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; border-radius: 2px; }
+  /* Long-pressing an illustration on a phone shouldn't pop up save/share menus. */
+  img, svg { -webkit-touch-callout: none; -webkit-user-drag: none; }
+}
+
+@keyframes float-object {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes draw-string { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes nudge-scroll { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(7px); } }
+
+/* Story reveals: the scroll loop (or an IntersectionObserver off the canvas)
+   sets data-shown once an element should appear. Only transform is used, so
+   layout translates (Tailwind's translate-*) are left alone. */
+.reveal {
+  transition: opacity .9s ease-out, filter .9s ease-out, transform .9s var(--ease-out);
+  transition-delay: var(--reveal-delay, 0s);
+}
+/* Out of focus until it arrives, then it sharpens into place. */
+.reveal:not([data-shown]) { opacity: 0; filter: blur(10px); transform: translateY(.75rem); transition-delay: 0s; }
+
+/* Fade up into place; used for the intro so it runs on time even before JS. */
+@keyframes reveal { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@utility animate-reveal { animation: reveal .8s var(--ease-out) both; }
+
+/* Stars that breathe, and a swirl that never stops turning. */
+@keyframes twinkle-rare { 0%, 100% { opacity: .18; } 6% { opacity: .9; } 14% { opacity: .18; } }
+@keyframes spin-slow { to { transform: rotate(-360deg); } }
+@utility animate-twinkle-rare { animation: twinkle-rare 7s ease-in-out infinite; }
+@utility animate-spin-slow { animation: spin-slow 14s linear infinite; }
+
+@keyframes star-flicker { 0%, 100% { opacity: .15; transform: scale(.7); } 40% { opacity: 1; transform: scale(1.15); } 55% { opacity: .35; } 70% { opacity: .9; } }
+@utility animate-star-flicker { animation: star-flicker 1s ease-in-out infinite; }
+
+@utility animate-float-object { animation: float-object 6s ease-in-out infinite; }
+@utility animate-draw-string { animation: draw-string 2.2s var(--ease-out) both; }
+@utility animate-nudge-scroll { animation: nudge-scroll 1.7s ease-in-out infinite; }
+
+/* Ambient light: two soft colour fields drifting very slowly behind the
+   story, plus a glow that follows the pointer on desktop. */
+@keyframes drift-a { 0%, 100% { transform: translate3d(0, 0, 0) scale(1); } 50% { transform: translate3d(6vw, 4vh, 0) scale(1.08); } }
+@keyframes drift-b { 0%, 100% { transform: translate3d(0, 0, 0) scale(1.05); } 50% { transform: translate3d(-5vw, -3vh, 0) scale(.95); } }
+.ambient-a { animation: drift-a 22s ease-in-out infinite; }
+.ambient-b { animation: drift-b 26s ease-in-out infinite; }
+.pointer-glow {
+  background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 40%), color-mix(in oklch, var(--primary) 13%, transparent), transparent 70%);
+  transition: opacity .6s ease-out;
+}
+
+/* Gradient ink, kept for a handful of highlights only. */
+.text-gradient {
+  background: linear-gradient(100deg, var(--primary) 10%, var(--cyan) 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Nav and inline links: an underline that draws in from the left. Kept in
+   the components layer so utilities (e.g. lg:absolute) can still override it. */
+@layer components {
+.story-link { position: relative; }
+.story-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .45s var(--ease-out);
+}
+.story-link:hover::after,
+.story-link:focus-visible::after,
+.story-link[data-active="true"]::after { transform: scaleX(1); transform-origin: left; }
+.story-link[data-active="true"] { color: var(--foreground); }
+.story-link[data-active="true"]::after { background: linear-gradient(90deg, var(--primary), var(--cyan)); height: 2px; }
+}
+
+/* Interactive cards: a small lift, a brighter edge and a soft violet wash. */
+.lift-card {
+  transition: transform .5s var(--ease-out), border-color .4s ease, background-color .4s ease, box-shadow .5s var(--ease-out);
+}
+.lift-card:hover,
+.lift-card:focus-within {
+  transform: translateY(-4px);
+  border-color: color-mix(in oklch, var(--primary) 55%, var(--border));
+  box-shadow: 0 24px 48px -28px color-mix(in oklch, var(--primary) 55%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .reveal:not([data-shown]) { opacity: 1; filter: none; transform: none; }
+  .lift-card:hover, .lift-card:focus-within { transform: none; }
+}
+
+/* The full-record page sits a shade deeper, like the far side of the thread. */
+.deep-page { background-color: var(--background-deep); }
