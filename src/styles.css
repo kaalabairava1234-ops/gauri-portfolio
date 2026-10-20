@@ -5,107 +5,83 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system definition.
+ * Design system: "editorial broadcast".
+ *
+ * Warm ivory paper, deep navy ink and one muted terracotta accent, set in
+ * Fraunces (display), Instrument Sans (text) and IBM Plex Mono (the small
+ * broadcast-style labels). Two sections invert to navy (.on-navy).
  *
  * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
- *
- * The :root block defines the actual color values using oklch. The site is
- * a single, deliberate dark theme: midnight navy, ivory type, an electric
- * violet for emphasis and a cool cyan for data highlights.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ * classes (e.g. --color-ink -> text-ink). All colours use oklch.
  */
 
 @theme inline {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Space Grotesk", "Inter", sans-serif;
-  --font-serif: "Instrument Serif", Georgia, serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
-  --font-hand: "Caveat", cursive;
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
+  --color-card-foreground: var(--foreground);
+  --color-popover: var(--card);
+  --color-popover-foreground: var(--foreground);
+  --color-primary: var(--ink);
+  --color-primary-foreground: var(--background);
+  --color-secondary: var(--sand);
+  --color-secondary-foreground: var(--foreground);
+  --color-muted: var(--sand);
   --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
+  --color-accent: var(--sand);
+  --color-accent-foreground: var(--foreground);
+  --color-destructive: oklch(0.577 0.245 27.325);
+  --color-destructive-foreground: var(--background);
   --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-ring-offset-background: var(--background);
-  --color-background-deep: var(--background-deep);
-  --color-surface: var(--surface);
-  --color-surface-2: var(--surface-2);
-  --color-cyan: var(--cyan);
-  --color-violet: var(--primary);
-  --color-cursor: var(--cursor);
-  --color-cursor-foreground: var(--cursor-foreground);
-  --color-cursor-border: var(--cursor-border);
+  --color-input: var(--border);
+  --color-ring: var(--terracotta);
+  --color-ink: var(--ink);
+  --color-ivory: var(--ivory);
+  --color-sand: var(--sand);
+  --color-terracotta: var(--terracotta);
+  --color-terracotta-soft: var(--terracotta-soft);
+  --color-navy: var(--navy);
 }
 
 :root {
-  color-scheme: dark;
-  --radius: 0.375rem;
-  --background: oklch(0.19 0.025 273); /* #10131F */
-  --background-deep: oklch(0.17 0.02 270); /* #0C0F18 */
-  --surface: oklch(0.237 0.03 269.8); /* #191E2D */
-  --surface-2: oklch(0.276 0.035 269.8); /* #212739 */
-  --foreground: oklch(0.964 0.007 88.6); /* #F5F3EE */
-  --card: var(--surface);
-  --card-foreground: var(--foreground);
-  --popover: var(--surface);
-  --popover-foreground: var(--foreground);
-  --primary: oklch(0.695 0.171 288.8); /* #9B87FF */
-  --primary-foreground: oklch(0.19 0.025 273);
-  --secondary: var(--surface-2);
-  --secondary-foreground: var(--foreground);
-  --muted: var(--surface);
-  --muted-foreground: oklch(0.731 0.029 267.4); /* #A0A8BB */
-  --accent: var(--surface-2);
-  --accent-foreground: var(--foreground);
-  --cyan: oklch(0.827 0.108 212); /* #66D9EF */
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: var(--foreground);
-  --border: oklch(0.316 0.037 269.3); /* #2A3145 */
-  --input: oklch(0.316 0.037 269.3);
-  --ring: oklch(0.695 0.171 288.8);
-  --cursor: oklch(0.695 0.171 288.8);
-  --cursor-foreground: oklch(0.17 0.02 270);
-  --cursor-border: oklch(0.78 0.13 288.8);
-  --ease-out: cubic-bezier(0.22, 0.7, 0.2, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  color-scheme: light;
+  --ivory: oklch(0.958 0.012 80);        /* #F5F0E8 */
+  --navy: oklch(0.245 0.045 262);        /* #13203A */
+  --sand: oklch(0.885 0.022 78);         /* #DDD3C3 */
+  --terracotta: oklch(0.56 0.13 38);     /* text-safe terracotta on ivory */
+  --terracotta-soft: oklch(0.68 0.12 40);
+  --background: var(--ivory);
+  --foreground: var(--navy);
+  --ink: var(--navy);
+  --card: oklch(0.975 0.008 80);
+  --muted-foreground: oklch(0.45 0.02 262);
+  --border: oklch(0.82 0.02 75);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* The inverted blocks (research, contact): navy paper, ivory ink. */
+.on-navy {
+  --background: var(--navy);
+  --foreground: var(--ivory);
+  --ink: var(--ivory);
+  --card: oklch(0.29 0.045 262);
+  --muted-foreground: oklch(0.8 0.02 80);
+  --border: oklch(0.4 0.04 262);
+  --terracotta: oklch(0.74 0.12 42);
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 @layer base {
-  * {
-    border-color: var(--color-border);
-  }
-
-  html {
-    scroll-behavior: smooth;
-    background-color: var(--background);
-  }
-
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; background-color: var(--ivory); }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -113,112 +89,76 @@
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
   }
-
-  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
-  /* Editorial accent: a single italic serif word inside a grotesk headline. */
-  em { font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: 0; }
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 400; font-variation-settings: "SOFT" 30, "opsz" 96; }
+  em { font-style: italic; font-variation-settings: "SOFT" 100, "WONK" 1; }
   button, a { cursor: pointer; }
-  ::selection { background: color-mix(in oklch, var(--primary) 45%, transparent); color: var(--foreground); }
-  :focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; border-radius: 2px; }
-  /* Long-pressing an illustration on a phone shouldn't pop up save/share menus. */
-  img, svg { -webkit-touch-callout: none; -webkit-user-drag: none; }
+  ::selection { background: color-mix(in oklch, var(--terracotta) 28%, transparent); }
+  :focus-visible { outline: 2px solid var(--terracotta); outline-offset: 3px; border-radius: 2px; }
+  img { -webkit-user-drag: none; }
 }
 
-@keyframes float-object {
-  0%, 100% { transform: translateY(0) rotate(-3deg); }
-  50% { transform: translateY(-10px) rotate(2deg); }
+/* ------------------------------------------------------------------------
+ * Motion: "signal".
+ * Headlines rise line by line out of a mask, images open with a wipe, and
+ * section rules draw across like a lower-third. Everything runs once, on
+ * arrival, through transform, opacity and clip-path only.
+ * --------------------------------------------------------------------- */
+
+@keyframes line-rise { from { transform: translateY(108%); } to { transform: none; } }
+@keyframes fade-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@keyframes wipe-open { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes settle { from { transform: scale(1.12); } to { transform: scale(1); } }
+@keyframes year-in { from { opacity: 0; transform: translateY(30%); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes on-air { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.8); } }
+
+/* Page load: the hero's lines rise out of their masks, one after another. */
+.mask-line { display: block; overflow: hidden; padding-bottom: .16em; margin-bottom: -.16em; }
+.mask-line > span { display: block; }
+.load-line > span { animation: line-rise 1.1s var(--ease) both; animation-delay: calc(.15s + var(--i, 0) * .11s); }
+.load-fade { animation: fade-rise .9s var(--ease) both; animation-delay: var(--d, .6s); }
+.load-wipe { animation: wipe-open 1.3s var(--ease) both; animation-delay: var(--d, .35s); }
+.load-wipe img { animation: settle 1.8s var(--ease) both; animation-delay: var(--d, .35s); }
+.on-air-dot { animation: on-air 2.4s ease-in-out infinite; }
+
+/* Scroll: .reveal elements are marked data-shown once (see lib/motion.ts). */
+.reveal { transition: opacity .9s var(--ease), transform .9s var(--ease); transition-delay: var(--delay, 0s); }
+.reveal:not([data-shown]) { opacity: 0; transform: translateY(24px); }
+.reveal.reveal-lines:not([data-shown]), .reveal.reveal-wipe:not([data-shown]), .reveal.rule-only:not([data-shown]) { opacity: 1; transform: none; }
+.reveal-lines .mask-line > span { transform: translateY(108%); transition: transform 1s var(--ease); transition-delay: calc(var(--delay, 0s) + var(--i, 0) * .09s); }
+.reveal-lines[data-shown] .mask-line > span { transform: none; }
+/* Photos: the figure is what gets observed (a fully clipped element never
+   counts as visible), and the box inside it opens with a wipe. */
+.reveal-wipe .wipe-box { clip-path: inset(0 0 100% 0); transition: clip-path 1.3s var(--ease); transition-delay: var(--delay, 0s); }
+.reveal-wipe .wipe-box img { transform: scale(1.12); transition: transform 1.8s var(--ease); transition-delay: var(--delay, 0s); }
+.reveal-wipe[data-shown] .wipe-box { clip-path: inset(0 0 0 0); }
+.reveal-wipe[data-shown] .wipe-box img { transform: none; }
+/* Section rules draw across like a lower-third. */
+.rule { transform-origin: left; transform: scaleX(0); transition: transform 1.2s var(--ease); transition-delay: var(--delay, .1s); }
+[data-shown] .rule, .rule[data-shown] { transform: scaleX(1); }
+
+/* The journey's big year, swapped in each time a new milestone arrives. */
+.year-swap { animation: year-in .7s var(--ease) both; }
+
+/* Links: a terracotta underline that sweeps in from the left. */
+.sweep {
+  background-image: linear-gradient(var(--terracotta), var(--terracotta));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1.5px;
+  transition: background-size .5s var(--ease), color .3s;
 }
+.sweep:hover, .sweep:focus-visible, .sweep[aria-current="true"] { background-size: 100% 1.5px; }
 
-@keyframes draw-string { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
-@keyframes nudge-scroll { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(7px); } }
-
-/* Story reveals: the scroll loop (or an IntersectionObserver off the canvas)
-   sets data-shown once an element should appear. Only transform is used, so
-   layout translates (Tailwind's translate-*) are left alone. */
-.reveal {
-  transition: opacity .9s ease-out, filter .9s ease-out, transform .9s var(--ease-out);
-  transition-delay: var(--reveal-delay, 0s);
-}
-/* Out of focus until it arrives, then it sharpens into place. */
-.reveal:not([data-shown]) { opacity: 0; filter: blur(10px); transform: translateY(.75rem); transition-delay: 0s; }
-
-/* Fade up into place; used for the intro so it runs on time even before JS. */
-@keyframes reveal { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-@utility animate-reveal { animation: reveal .8s var(--ease-out) both; }
-
-/* Stars that breathe, and a swirl that never stops turning. */
-@keyframes twinkle-rare { 0%, 100% { opacity: .18; } 6% { opacity: .9; } 14% { opacity: .18; } }
-@keyframes spin-slow { to { transform: rotate(-360deg); } }
-@utility animate-twinkle-rare { animation: twinkle-rare 7s ease-in-out infinite; }
-@utility animate-spin-slow { animation: spin-slow 14s linear infinite; }
-
-@keyframes star-flicker { 0%, 100% { opacity: .15; transform: scale(.7); } 40% { opacity: 1; transform: scale(1.15); } 55% { opacity: .35; } 70% { opacity: .9; } }
-@utility animate-star-flicker { animation: star-flicker 1s ease-in-out infinite; }
-
-@utility animate-float-object { animation: float-object 6s ease-in-out infinite; }
-@utility animate-draw-string { animation: draw-string 2.2s var(--ease-out) both; }
-@utility animate-nudge-scroll { animation: nudge-scroll 1.7s ease-in-out infinite; }
-
-/* Ambient light: two soft colour fields drifting very slowly behind the
-   story, plus a glow that follows the pointer on desktop. */
-@keyframes drift-a { 0%, 100% { transform: translate3d(0, 0, 0) scale(1); } 50% { transform: translate3d(6vw, 4vh, 0) scale(1.08); } }
-@keyframes drift-b { 0%, 100% { transform: translate3d(0, 0, 0) scale(1.05); } 50% { transform: translate3d(-5vw, -3vh, 0) scale(.95); } }
-.ambient-a { animation: drift-a 22s ease-in-out infinite; }
-.ambient-b { animation: drift-b 26s ease-in-out infinite; }
-.pointer-glow {
-  background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 40%), color-mix(in oklch, var(--primary) 13%, transparent), transparent 70%);
-  transition: opacity .6s ease-out;
-}
-
-/* Gradient ink, kept for a handful of highlights only. */
-.text-gradient {
-  background: linear-gradient(100deg, var(--primary) 10%, var(--cyan) 90%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* Nav and inline links: an underline that draws in from the left. Kept in
-   the components layer so utilities (e.g. lg:absolute) can still override it. */
-@layer components {
-.story-link { position: relative; }
-.story-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -4px;
-  height: 1px;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform .45s var(--ease-out);
-}
-.story-link:hover::after,
-.story-link:focus-visible::after,
-.story-link[data-active="true"]::after { transform: scaleX(1); transform-origin: left; }
-.story-link[data-active="true"] { color: var(--foreground); }
-.story-link[data-active="true"]::after { background: linear-gradient(90deg, var(--primary), var(--cyan)); height: 2px; }
-}
-
-/* Interactive cards: a small lift, a brighter edge and a soft violet wash. */
-.lift-card {
-  transition: transform .5s var(--ease-out), border-color .4s ease, background-color .4s ease, box-shadow .5s var(--ease-out);
-}
-.lift-card:hover,
-.lift-card:focus-within {
-  transform: translateY(-4px);
-  border-color: color-mix(in oklch, var(--primary) 55%, var(--border));
-  box-shadow: 0 24px 48px -28px color-mix(in oklch, var(--primary) 55%, transparent);
-}
+/* Accordions open by animating the row height (no measuring needed). */
+.collapse { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .6s var(--ease); }
+.collapse[data-open="true"] { grid-template-rows: 1fr; }
+.collapse > div { overflow: hidden; }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-  .reveal:not([data-shown]) { opacity: 1; filter: none; transform: none; }
-  .lift-card:hover, .lift-card:focus-within { transform: none; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  .reveal:not([data-shown]) { opacity: 1; transform: none; }
+  .reveal-lines .mask-line > span, .rule { transform: none; }
+  .reveal-wipe .wipe-box { clip-path: none; }
+  .reveal-wipe .wipe-box img { transform: none; }
 }
-
-/* The full-record page sits a shade deeper, like the far side of the thread. */
-.deep-page { background-color: var(--background-deep); }

@@ -19,7 +19,7 @@ export default defineConfig({
     // also works on static hosts such as GitHub Pages.
     tanstackStart({
       server: { entry: "server" },
-      pages: [{ path: "/" }, { path: "/work" }],
+      pages: [{ path: "/" }],
       prerender: { enabled: true, crawlLinks: false, failOnError: true },
     }),
     nitro(),

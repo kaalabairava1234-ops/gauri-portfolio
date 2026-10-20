@@ -41,16 +41,15 @@ export function Spotlight({ label, onClose, onMove, children }: { label: string;
   }, []);
 
   return (
-    <div ref={panelRef} role="dialog" aria-modal="true" aria-label={label} className="fixed inset-0 z-[150] overflow-y-auto bg-[color-mix(in_oklch,var(--background-deep)_94%,transparent)] backdrop-blur-md" onClick={onClose}>
-      <div aria-hidden="true" className="pointer-events-none fixed inset-0 bg-[radial-gradient(60%_50%_at_15%_10%,color-mix(in_oklch,var(--primary)_14%,transparent),transparent_70%)]" />
+    <div ref={panelRef} role="dialog" aria-modal="true" aria-label={label} className="fixed inset-0 z-[150] overflow-y-auto bg-background/95 backdrop-blur-sm" onClick={onClose}>
       <div className="animate-reveal relative mx-auto min-h-full max-w-[1300px] px-5 pb-28 pt-24 sm:px-8" onClick={(e) => e.stopPropagation()}>
         {children}
       </div>
-      <button ref={closeRef} onClick={onClose} aria-label="Close" className="fixed right-5 top-5 grid h-11 w-11 place-items-center rounded-full border border-border bg-background/70 text-foreground transition-colors hover:border-primary hover:bg-surface sm:right-8 sm:top-7">
+      <button ref={closeRef} onClick={onClose} aria-label="Close" className="fixed right-5 top-5 grid h-11 w-11 place-items-center rounded-full border border-foreground/30 bg-background text-foreground transition-colors hover:bg-muted sm:right-8 sm:top-7">
         <X className="h-5 w-5" />
       </button>
       {onMove && (
-        <div className="pointer-events-none fixed inset-x-0 bottom-0 flex justify-center gap-3 bg-gradient-to-t from-background-deep via-background-deep/85 to-transparent pb-6 pt-12" onClick={(e) => e.stopPropagation()}>
+        <div className="pointer-events-none fixed inset-x-0 bottom-0 flex justify-center gap-3 bg-gradient-to-t from-background via-background/85 to-transparent pb-6 pt-12" onClick={(e) => e.stopPropagation()}>
           <button onClick={() => onMove(-1)} className="pointer-events-auto inline-flex items-center gap-2 rounded-full border border-border bg-background/80 px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-foreground/60 hover:text-foreground">
             <ArrowLeft className="h-4 w-4" /> previous
           </button>

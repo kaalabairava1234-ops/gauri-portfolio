@@ -1,6 +1,7 @@
-// Every fact on the site comes from Gauri's CV (public/Gauri_Tichkule_CV.pdf)
-// and lives here, so the story, the case studies and the full record never
-// drift apart. Change the words here, not in the pages.
+// Every fact on the site comes from Gauri's CVs (public/Gauri_Tichkule_CV.pdf,
+// the latest, plus the details of her March 2026 CV) and her own notes, and
+// lives here so the story, the work and the full record never drift apart.
+// Change the words here, not in the pages.
 
 import { withBase } from "./utils";
 
@@ -10,11 +11,8 @@ export const EMAIL = "gauritichkule@gmail.com";
 export const LOCATION = "Milton Keynes, United Kingdom";
 export const CV_PATH = withBase("Gauri_Tichkule_CV.pdf");
 
-// The CV names LinkedIn but the PDF carries no link, so there is no verified
-// URL yet. Paste the full profile URL here (https://www.linkedin.com/in/…)
-// and every LinkedIn link on the site appears; left empty, they stay hidden
-// rather than pointing nowhere.
-export const LINKEDIN_URL = "";
+// From the March 2026 CV. Left empty, every LinkedIn link on the site hides.
+export const LINKEDIN_URL = "https://www.linkedin.com/in/gauritichkule";
 
 export type Role = {
   id: string;
@@ -22,7 +20,9 @@ export type Role = {
   title: string;
   place: string;
   dates: string;
+  channel: string;
   summary: string;
+  highlights: { value: string; label: string }[];
   points: string[];
 };
 
@@ -33,7 +33,12 @@ export const roles: Role[] = [
     title: "B2B Marketing and CRM Intern",
     place: "United Kingdom",
     dates: "Jun 2026 – Aug 2026",
-    summary: "B2B content, answer-engine visibility and the buyer journey behind the CRM.",
+    channel: "B2B · Health & safety",
+    summary: "B2B marketing for Navatech's AI-powered construction safety product: content for construction professionals, answer-engine visibility, and the buyer journey behind the CRM.",
+    highlights: [
+      { value: "15%", label: "of site content optimised for AEO" },
+      { value: "4+", label: "industry blog posts a month" },
+    ],
     points: [
       "Optimised 15% of website content for Answer Engine Optimisation (AEO).",
       "Established off-site brand profiles, including Trustpilot, to feed external trust signals into AI search results.",
@@ -47,7 +52,13 @@ export const roles: Role[] = [
     title: "Executive, Media Planning and Buying",
     place: "India",
     dates: "Jun 2024 – Sep 2025",
-    summary: "US national TV for four global brands, between the client and the networks.",
+    channel: "Broadcast · US national TV",
+    summary: "Planning and buying US national TV for four global brands, as the link between each client and the networks.",
+    highlights: [
+      { value: "10%", label: "average saving per campaign" },
+      { value: "30%", label: "faster planning turnaround" },
+      { value: "97%", label: "client retention across the year" },
+    ],
     points: [
       "Planned and bought US national TV for Merck, Floor & Decor, Eggland’s Best and Henkel, acting as the link between each client and the networks, including MTV.",
       "Negotiated 100+ placements a quarter with 20+ networks and media partners, achieving an average 10% saving per campaign.",
@@ -62,13 +73,21 @@ export const roles: Role[] = [
     title: "Platform Support Specialist",
     place: "India",
     dates: "Sep 2021 – May 2024",
-    summary: "Paid display, video and retargeting on AdRoll, plus the CRM integrations around it.",
+    channel: "Digital · Campaign operations",
+    summary: "The full digital campaign lifecycle on AdRoll: onboarding clients, troubleshooting campaign issues and optimising live campaigns, plus the CRM integrations around them.",
+    highlights: [
+      { value: "99.2%", label: "customer satisfaction" },
+      { value: "150+", label: "campaigns executed a month" },
+      { value: "50+", label: "advertisers onboarded a month" },
+    ],
     points: [
       "Executed 150+ paid display, video and retargeting campaigns a month on AdRoll, with rapid recommendations on ad size, budgeting and targeting.",
+      "Optimised 100+ multi-channel campaigns each quarter, using analytics and market insight to beat client KPIs.",
       "Led CRM integrations for HubSpot, Mailchimp and Marketo, enabling automation and personalised customer journeys.",
       "Onboarded 50+ advertisers a month, integrating ad formats across global social media channels.",
       "Contributed to the AdRoll and Shopify integration, which earned 12+ positive reviews on the Google Play Store for the implementation and support.",
-      "Delivered 99.2% customer satisfaction across 20+ client conversations a day, and won the Client’s Favourite award four times, in different quarters.",
+      "Delivered 99.2% customer satisfaction across 20+ client conversations a day, and proposed new product features from what clients needed.",
+      "Recognised four quarters running: the Client’s Favourite accolade (Q3 2022) and the highest chat CSAT score for Q2–Q4 2023.",
     ],
   },
 ];
@@ -85,134 +104,142 @@ export const metrics: Metric[] = [
   { value: 50, suffix: "+", label: "advertisers onboarded every month", context: "AdRoll platform operations · Mediamint" },
 ];
 
-export type CaseStudy = {
-  id: string;
-  number: string;
-  title: string;
-  tags: string[];
-  blurb: string;
-  employer: string;
-  role: string;
-  dates: string;
-  context: string;
-  did: string[];
-  results: { value: string; label: string }[];
-  visual: "media" | "aeo" | "journey" | "ops";
-};
-
-// Experience-based case studies: real roles and real numbers, with
-// illustrative visuals. No budgets, screenshots or client material.
-export const caseStudies: CaseStudy[] = [
+// The career, told in six chapters (Gauri's own timeline, checked against
+// her CVs). Each says what happened and what it added.
+export const journey = [
   {
-    id: "media",
-    number: "01",
-    title: "US national TV, planned and bought",
-    tags: ["Media"],
-    blurb: "Negotiating national TV for four global brands, and getting more out of every plan.",
-    employer: "IPG Mediabrands",
-    role: "Executive, Media Planning and Buying",
-    dates: "Jun 2024 – Sep 2025",
-    context: "Four global brands (Merck, Floor & Decor, Eggland’s Best and Henkel) bought US national TV through the team. The role sat between each client and the networks, including MTV.",
-    did: [
-      "Negotiated 100+ placements a quarter with 20+ networks and media partners.",
-      "Built 50+ media estimates and packages in Media Ocean.",
-      "Ran bi-weekly GRP and unit-count analyses to optimise live campaigns.",
-      "Coordinated 25+ networks and vendors through delivery.",
-    ],
-    results: [
-      { value: "10%", label: "average saving per campaign" },
-      { value: "30%", label: "faster planning turnaround" },
-      { value: "12%", label: "lift in viewership engagement" },
-      { value: "95%", label: "of activity delivered on target" },
-      { value: "97%", label: "client retention across the year" },
-    ],
-    visual: "media",
+    year: "2019",
+    stage: "First marketing experience",
+    title: "Started with mystery shopping.",
+    org: "Mystery shopping internship",
+    body: "My first marketing internship: evaluating service quality as a customer would, and seeing how businesses actually interact with the people they serve.",
+    learned: "A customer's-eye view of service",
   },
   {
-    id: "aeo",
-    number: "02",
-    title: "B2B visibility for AI search",
-    tags: ["B2B & CRM", "Digital"],
-    blurb: "Making a B2B brand easier for answer engines to find, read and trust.",
-    employer: "Navatech",
-    role: "B2B Marketing and CRM Intern",
-    dates: "Jun 2026 – Aug 2026",
-    context: "B2B content written for construction industry professionals, at a time when search is moving toward AI-generated answers. The MSc thesis that followed stayed with the same company: a go-to-market strategy for Navatech’s Intelligence Layer.",
-    did: [
-      "Optimised 15% of the website’s content for Answer Engine Optimisation.",
-      "Set up off-site brand profiles, including Trustpilot, as external trust signals for AI search.",
-      "Wrote 4+ blog posts a month for construction industry professionals.",
-    ],
-    results: [
-      { value: "15%", label: "of site content optimised for AEO" },
-      { value: "4+", label: "industry blog posts a month" },
-    ],
-    visual: "aeo",
+    year: "2020",
+    stage: "Academic foundation",
+    title: "Business school, plus digital.",
+    org: "Bachelor of Business Management, City Premium College · PG Certification in Digital Marketing and Communication, upGrad–MICA",
+    body: "Business fundamentals with a marketing specialisation, alongside my first hands-on campaigns: Google display and search, Facebook paid, and a WordPress site of short brand stories for upGrad. Both completed in 2021.",
+    learned: "Marketing fundamentals, put into practice",
   },
   {
-    id: "journey",
-    number: "03",
-    title: "Customer journeys, wired into the CRM",
-    tags: ["B2B & CRM"],
-    blurb: "From a mapped buyer journey to the CRM stages and automations that follow it.",
-    employer: "Navatech · Mediamint",
-    role: "B2B Marketing and CRM Intern · Platform Support Specialist",
-    dates: "2021 – 2026",
-    context: "Two roles, one idea: a CRM is only as good as the journey it reflects. At Navatech the journey came first; at Mediamint the work was connecting the platforms that carry it.",
-    did: [
-      "Created Navatech’s customer buyer journey, which shaped the CRM set-up at each stage.",
-      "Led CRM integrations for HubSpot, Mailchimp and Marketo at Mediamint.",
-      "Enabled marketing automation and personalised customer journeys through those integrations.",
-    ],
-    results: [
-      { value: "3", label: "CRM platforms integrated: HubSpot, Mailchimp, Marketo" },
-      { value: "1", label: "buyer journey shaping every CRM stage" },
-    ],
-    visual: "journey",
+    year: "2021",
+    stage: "Digital campaign operations",
+    title: "Into the digital campaign lifecycle.",
+    org: "Mediamint · Platform Support Specialist",
+    body: "Onboarding clients, troubleshooting campaign issues and optimising live campaigns: learning how campaign performance, client needs and day-to-day execution fit together.",
+    learned: "Campaign operations and client onboarding",
   },
   {
-    id: "ops",
-    number: "04",
-    title: "Advertising operations at scale",
-    tags: ["Digital"],
-    blurb: "Running paid campaigns and onboarding advertisers every month, with the customer kept happy.",
-    employer: "Mediamint",
-    role: "Platform Support Specialist",
-    dates: "Sep 2021 – May 2024",
-    context: "Day-to-day work on AdRoll across paid display, video and retargeting, for advertisers coming in from global social media channels.",
-    did: [
-      "Executed 150+ paid display, video and retargeting campaigns a month.",
-      "Gave rapid recommendations on ad size, budgeting and targeting.",
-      "Onboarded 50+ advertisers a month across ad formats and social channels.",
-      "Contributed to the AdRoll and Shopify integration (12+ positive Google Play Store reviews).",
-    ],
-    results: [
-      { value: "99.2%", label: "customer satisfaction" },
-      { value: "150+", label: "campaigns executed a month" },
-      { value: "50+", label: "advertisers onboarded a month" },
-      { value: "4×", label: "Client’s Favourite award" },
-    ],
-    visual: "ops",
+    year: "2024",
+    stage: "Transition to broadcast media",
+    title: "From digital to broadcast.",
+    org: "IPG Mediabrands · Executive, Media Planning and Buying",
+    body: "US national TV for four global brands. Working across both digital and broadcast showed me how differently audiences are reached, bought and measured on each.",
+    learned: "Broadcast planning and negotiation",
+  },
+  {
+    year: "2025",
+    stage: "Cranfield University",
+    title: "Stepping back to think strategically.",
+    org: "MSc Strategic Marketing, Cranfield University",
+    body: "Brand management, CRM and omnichannel, sustainable and digital marketing, with a 15% merit scholarship, and a research thesis on trust and AI adoption in construction.",
+    learned: "Strategy, brand and research",
+  },
+  {
+    year: "2026",
+    stage: "B2B experience in HSE",
+    title: "B2B, in health and safety.",
+    org: "Navatech · B2B Marketing and CRM Intern",
+    body: "B2B marketing for a construction safety technology company: writing for industry professionals, building answer-engine visibility, and mapping the buyer journey that shaped the CRM.",
+    learned: "B2B stakeholders and go-to-market",
   },
 ];
 
+// The MSc thesis, from Gauri's own summary. The finding is reported as she
+// stated it: no statistics beyond the 43 respondents.
+export const research = {
+  title: "Go-to-Market Strategy for Navatech’s Intelligence Layer",
+  focus: "Trust and the adoption of AI-powered safety technology in construction.",
+  school: "MSc Strategic Marketing · Cranfield University · 2026",
+  summary:
+    "My thesis studied how trust affects whether construction companies and site workers would adopt Navatech's AI safety product. I surveyed 43 people and found that overall trust, rather than any one factor alone, was what most influenced willingness to adopt. From that, I built a go-to-market strategy for Navatech focused on earning trust from both buyers and frontline workers.",
+  question: "Does trust shape whether construction companies and site workers would adopt an AI-powered safety product?",
+  method: "A survey of 43 respondents.",
+  finding: "Overall trust, rather than any single factor alone, most influenced willingness to adopt.",
+  application: "A go-to-market strategy built on earning trust from both organisational buyers and frontline workers.",
+  why: "Safety technology on a construction site has two audiences: the business that buys it and the people who use it every day. A product only works if both trust it, so the go-to-market has to speak to both.",
+};
+
 export const education = [
-  { title: "MSc Strategic Marketing", school: "Cranfield University, United Kingdom", dates: "Sep 2025 – Sep 2026", notes: ["15% merit scholarship", "Thesis: Go-to-Market Strategy for Navatech’s Intelligence Layer", "Managing Brands project: 2nd of 6 brand proposals"] },
-  { title: "Bachelor of Business Management", school: "City Premium College, India", dates: "Jun 2018 – Aug 2021", notes: ["CGPA 9.4/10", "Specialising in marketing"] },
-  { title: "PG Certification in Digital Marketing", school: "upGrad and MICA, India", dates: "Dec 2020 – Aug 2021", notes: [] },
+  {
+    title: "MSc Strategic Marketing",
+    school: "Cranfield University, United Kingdom",
+    dates: "Sep 2025 – Sep 2026",
+    notes: ["15% merit scholarship for academic distinction", "Thesis: Go-to-Market Strategy for Navatech’s Intelligence Layer"],
+    projects: [
+      "Brand Management: 2nd place, brand identity and market entry for the UK premium meat market",
+      "Sales & Revenue Management: Curry UK market strategy",
+      "CRM & Omnichannel Management: Uniqlo UK customer experience",
+      "Sustainable Marketing: Cadbury Bournville rebrand",
+      "Marketing Communication & Digital Marketing: Age UK brand awareness",
+    ],
+  },
+  {
+    title: "Bachelor of Business Management",
+    school: "City Premium College, India",
+    dates: "Jun 2018 – Aug 2021",
+    notes: ["CGPA 9.4/10, specialising in marketing", "1st rank in the college summer examination", "10th rank, Nagpur University (RTMNU) merit list"],
+    projects: ["Consumer buying capacity for Haldiram’s sweets and snacks: purchasing trends and market insights"],
+  },
+  {
+    title: "PG Certification in Digital Marketing and Communication",
+    school: "upGrad and MICA, India",
+    dates: "Dec 2020 – Aug 2021",
+    notes: [],
+    projects: ["Ran upGrad campaigns: Google display, Google search and Facebook paid, plus a WordPress site of short brand stories"],
+  },
 ];
 
 export const skillGroups = [
   { title: "Media and campaigns", items: ["TV and digital planning and buying", "Paid social", "Display and retargeting", "Negotiation", "GRP analysis", "Campaign reporting"] },
   { title: "CRM and content", items: ["HubSpot", "Marketo", "Mailchimp", "SEO and AEO", "Blog writing", "Email marketing", "Customer journey mapping"] },
-  { title: "Platforms and tools", items: ["Media Ocean", "AdRoll", "GA4", "GTM", "Zendesk", "Canva", "Microsoft Excel", "Microsoft PowerPoint"] },
+  { title: "Platforms and tools", items: ["Media Ocean", "AdRoll", "Banyan", "GA4", "GTM", "Zendesk", "Canva", "Microsoft Excel", "Microsoft Word", "Microsoft PowerPoint"] },
 ];
 
-export const leadership = [
-  { title: "Careers Representative", org: "Cranfield University", detail: "Mobilised 100+ students to weekly career workshops over a full year." },
-  { title: "Social Media & Events Head", org: "Art & Craft Society", detail: "Managed social media and 5+ open events." },
-  { title: "Event Manager", org: "Hult Prize", detail: "Organised the university-level competition, including five campus events." },
-  { title: "Member", org: "Walking Society and Green Society, Cranfield University", detail: "Took part in large-scale tree plantation drives." },
+export type LeadershipRole = { title: string; org: string; detail: string; stat: { value: string; label: string }; skills: string[] };
+
+// The three roles Gauri wants highlighted beside the work.
+export const leadership: LeadershipRole[] = [
+  {
+    title: "Careers Representative",
+    org: "Cranfield University",
+    detail: "Promoted career resources, workshops and upcoming opportunities to fellow students on behalf of the Cranfield careers team, mobilising 100+ students to weekly career workshops over a full year.",
+    stat: { value: "100+", label: "students to weekly workshops" },
+    skills: ["Student engagement", "Communication", "Representing the careers team"],
+  },
+  {
+    title: "Social Media & Events Manager",
+    org: "Art & Craft Society · Board Member",
+    detail: "Managed the society’s social media and event promotion, and organised open campus events for students across the university.",
+    stat: { value: "5+", label: "open campus events" },
+    skills: ["Social media", "Event promotion", "Event management"],
+  },
+  {
+    title: "Event Manager",
+    org: "Hult Prize",
+    detail: "Managed five campus events across every round of the global student entrepreneurship competition, from the introduction to the final.",
+    stat: { value: "5", label: "campus events, intro to final" },
+    skills: ["Event management", "Programme coordination"],
+  },
+];
+
+// Community and the life around the work, for the full record.
+export const community = [
+  { title: "Volunteering", org: "Fly High India (2020) · Zero Gravity’s Project Happiness (2018)", detail: "Promoted value-education awareness through orphanage visits and ran educational programmes for 1000+ children across shelter homes in Nagpur." },
+  { title: "Student societies", org: "Walking Society and Green Society, Cranfield University", detail: "Took part in 3+ large-scale tree-planting initiatives and hiking events." },
+  { title: "Off the clock", org: "Painting", detail: "Took part in a canvas painting exhibition (2017–2018)." },
 ];
 
 export type JournalEntry = {
@@ -240,7 +267,7 @@ export const journal: JournalEntry[] = [
     kicker: "Managing Brands · MSc Strategic Marketing",
     date: "Mar 2026",
     title: "We built a brand from absolute scratch.",
-    excerpt: "Not a concept on paper: a living identity with a story, a voice and a purpose behind every decision. Our team placed 2nd of 6 competing brand proposals.",
+    excerpt: "A brand identity and market-entry strategy for the UK premium meat market: a living identity with a story, a voice and a purpose behind every decision. Our team placed 2nd of 6 competing brand proposals.",
     photo: "brand",
     caption: "brand presentation day ✦",
     badge: { value: "2nd", label: "of 6 brand proposals" },

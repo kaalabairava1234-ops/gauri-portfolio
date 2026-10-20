@@ -5,16 +5,16 @@ import { forwardRef, type ButtonHTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex h-12 items-center justify-center rounded-md border px-7 text-sm font-medium transition-[background-color,border-color,color,transform,box-shadow] duration-300 ease-[cubic-bezier(.22,.7,.2,1)] focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:translate-y-0 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex h-12 items-center justify-center border px-7 text-sm font-medium transition-[background-color,color,transform] duration-200 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         default: "border-primary bg-primary text-primary-foreground hover:bg-primary/90",
-        ink: "border-foreground bg-foreground text-background hover:-translate-y-0.5 hover:border-primary hover:bg-primary hover:text-primary-foreground hover:shadow-[0_14px_30px_-14px_var(--primary)]",
+        ink: "border-foreground bg-foreground text-background hover:-translate-y-0.5 hover:bg-foreground/85",
         paper:
-          "border-foreground/40 bg-background/40 text-foreground backdrop-blur-sm hover:-translate-y-0.5 hover:border-foreground hover:bg-surface",
+          "border-foreground bg-background text-foreground hover:-translate-y-0.5 hover:bg-muted",
         filter:
-          "h-9 rounded-full border-border bg-transparent px-4 text-muted-foreground hover:border-foreground/60 hover:text-foreground data-[active=true]:border-primary data-[active=true]:bg-primary data-[active=true]:text-primary-foreground",
+          "h-9 rounded-full border-border bg-transparent px-4 text-muted-foreground hover:border-foreground hover:text-foreground data-[active=true]:border-foreground data-[active=true]:bg-foreground data-[active=true]:text-background",
         outline: "border-input bg-background text-foreground hover:bg-accent",
         secondary: "border-secondary bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "border-transparent bg-transparent text-foreground hover:bg-accent",

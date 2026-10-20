@@ -90,7 +90,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: NAME },
       { property: "og:locale", content: "en_GB" },
       { property: "og:image", content: OG_IMAGE },
-      { name: "theme-color", content: "#10131F" },
+      { name: "theme-color", content: "#F5F0E8" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: OG_IMAGE },
     ],
@@ -103,7 +103,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..600,0..100,0..1;1,9..144,300..600,0..100,0..1&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap",
       },
       { rel: "icon", href: withBase("favicon.svg"), type: "image/svg+xml" },
       { rel: "icon", href: withBase("favicon-32.png"), type: "image/png", sizes: "32x32" },
@@ -133,7 +133,7 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
         {/* Without JS nothing would ever mark reveals as shown, so show them all. */}
         <noscript>
-          <style>{".reveal{opacity:1!important;filter:none!important;transform:none!important}"}</style>
+          <style>{".reveal,.reveal .mask-line>span,.rule{opacity:1!important;transform:none!important}.reveal-wipe .wipe-box{clip-path:none!important}.reveal-wipe .wipe-box img{transform:none!important}"}</style>
         </noscript>
       </head>
       <body>

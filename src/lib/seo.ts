@@ -13,7 +13,7 @@ export const SITE_URL = "https://kaalabairava1234-ops.github.io/gauri-portfolio"
 export const OG_IMAGE = `${SITE_URL}/og.png`;
 
 export const ABOUT_SHORT =
-  "Gauri Tichkule is a Milton Keynes-based marketing professional with 4+ years across US national TV planning and buying, digital advertising, B2B marketing, CRM and AEO, and an MSc in Strategic Marketing from Cranfield University.";
+  "Gauri Tichkule is a Milton Keynes-based marketing professional with a blended experience across digital and broadcast media: campaign operations at Mediamint, US national TV at IPG Mediabrands and B2B marketing at Navatech, plus an MSc in Strategic Marketing from Cranfield University with research on trust and AI adoption. Open to HR marketing, marketing consulting and B2B roles.";
 
 export const PROFILES = [LINKEDIN_URL].filter(Boolean);
 
@@ -42,6 +42,8 @@ export const person = {
     "Customer journey mapping",
     "SEO",
     "Answer Engine Optimisation",
+    "Technology adoption and trust",
+    "Go-to-market strategy",
   ],
   ...(PROFILES.length ? { sameAs: PROFILES } : {}),
 };
@@ -66,7 +68,7 @@ export function pageMeta({ title, description, path }: { title: string; descript
       { property: "og:image", content: OG_IMAGE },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: "Gauri Tichkule — Marketing Strategy. Media Intelligence. Measurable Growth." },
+      { property: "og:image:alt", content: "Gauri Tichkule — from the campaign desk to the strategy table" },
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
       { name: "twitter:image", content: OG_IMAGE },

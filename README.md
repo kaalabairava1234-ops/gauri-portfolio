@@ -1,43 +1,37 @@
-# Gauri Tichkule — Marketing Strategy. Media Intelligence. Measurable Growth.
+# Gauri Tichkule — from the campaign desk to the strategy table
 
 The personal portfolio of Gauri Tichkule, a Milton Keynes-based marketing professional working across US national TV planning and buying, digital advertising, B2B marketing, CRM and Answer Engine Optimisation, with an MSc in Strategic Marketing from Cranfield University.
 
-Built on [SomehowLiving/portfolio-template](https://github.com/SomehowLiving/portfolio-template) (MIT). The template's structure is kept: a story told along one hand-drawn thread, a work section, a rabbit-hole transition into a second page, and an "oh, hi." ending.
-
-- **Laptop (1024px and up):** the story scrolls sideways. The thread pulls free of a tangle ("every channel, network and touchpoint"), weaves through the channels, the toolkits and the years, ties an optimisation loop, and ends at the work.
-- **Phones and tablets:** the same story told vertically, with the thread weaving down the page.
+An editorial portfolio for a marketing professional working across digital and broadcast media, B2B marketing and research-led strategy.
 
 ## What's on it
 
-| Section | Where | What it holds |
-| --- | --- | --- |
-| Hero | `/` story intro | Positioning, intro, location, Explore my work, Download CV |
-| About | story | 4+ years, the channels, Cranfield MSc |
-| Skills & tools | story ("three toolkits") | Media and campaigns, CRM and content, platforms and tools |
-| Experience & education | story timeline | One beat per year; each role opens with its full CV bullets |
-| How I work | story loop | research → plan → run → measure → optimise |
-| Impact | `#impact` | Six CV metrics with count-up animation |
-| Selected work | `#work` | Four experience-based case studies with illustrative visuals |
-| The full record | `/work` | Every role, education, skills, leadership and community |
-| Contact | `#hi` | Email, CV download, full record |
+One page, seven sections:
+
+| Section | What it holds |
+| --- | --- |
+| Hero | Positioning, "open to" roles, CV download, an index of the four channels |
+| 01 Journey | Six chapters, 2019–2026, with a sticky year that changes as you read |
+| 02 Experience | Six headline numbers, then each role with highlights and expandable responsibilities |
+| 03 Leadership | Careers Representative, Art & Craft Society, Hult Prize |
+| 04 Research | The MSc thesis on trust and AI safety adoption |
+| 05 Field notes | Two MSc moments, each opening into a full note |
+| 06 About | Story, education, skills and life beyond work |
+| 07 Contact | Email, LinkedIn, CV |
 
 ## Where things live
 
-- `src/lib/content.ts`: **every fact on the site**, taken from the CV. Edit words here, not in the pages.
-- `src/routes/index.tsx`: the home page (story, impact, work, contact)
-- `src/routes/work.tsx`: the full record, reached through the rabbit hole
-- `src/components/marks.tsx`: the line-drawn objects along the thread
-- `src/components/case-visuals.tsx`: the illustrative case-study diagrams
-- `src/components/spotlight.tsx`: the accessible detail dialog for roles and case studies
-- `src/components/rabbit-hole.tsx`: the fall into the full record and the climb back out
+- `src/lib/content.ts`: **every fact on the site** (journey, roles, research, education, skills, leadership, notes). Edit words here, not in the page.
+- `src/routes/index.tsx`: the page and its sections
+- `src/components/photos.tsx`: the photos and the editorial frame they open in
+- `src/components/spotlight.tsx`: the accessible dialog for field notes
 - `src/lib/motion.ts`: shared reveal and count-up helpers (all respect reduced motion)
 - `src/lib/seo.ts`: titles, share card, structured data
-- `src/styles.css`: colour tokens, typography and animations
+- `src/styles.css`: colour tokens, typography and the motion system
 - `public/Gauri_Tichkule_CV.pdf`: the CV every download link points to
 
 ## Before going live
 
-1. **LinkedIn:** paste the profile URL into `LINKEDIN_URL` in `src/lib/content.ts`. LinkedIn links stay hidden until it's set.
 2. **Domain:** the site address is set to the GitHub Pages URL. If you connect a custom domain, update `SITE_URL` in `src/lib/seo.ts` and the same address in `public/sitemap.xml`, `public/robots.txt` and `public/llms.txt`.
 3. **CV:** replace `public/Gauri_Tichkule_CV.pdf` whenever the CV changes (keep the file name, or update `CV_PATH`).
 
@@ -67,9 +61,9 @@ The same project also deploys to [Vercel](https://vercel.com) with zero configur
 
 - [TanStack Start](https://tanstack.com/start) (React 19 + TanStack Router), TypeScript
 - Vite, Tailwind CSS 4
-- Animation is hand-written: SVG paths for the threads, `requestAnimationFrame` for the scroll story, CSS and IntersectionObserver for reveals. No animation libraries.
-- Type: Space Grotesk, Inter, Instrument Serif, JetBrains Mono, Caveat (Google Fonts)
+- Animation is hand-written: CSS masks, clip-path wipes and IntersectionObserver reveals. No animation libraries.
+- Type: Fraunces, Instrument Sans and IBM Plex Mono (Google Fonts); palette of ivory, navy and terracotta
 
 ## Credits
 
-Template and thread engine by [Nidhi Prajapati](https://github.com/SomehowLiving/portfolio-template), MIT-licensed (see `LICENSE`). Content, story and visuals are Gauri Tichkule's.
+Started from [SomehowLiving/portfolio-template](https://github.com/SomehowLiving/portfolio-template) (MIT, see `LICENSE`) as a structural base; the design, content and visuals are Gauri Tichkule's.
