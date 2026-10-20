@@ -4,9 +4,12 @@
 
 Website: https://kaalabairava1234-ops.github.io/gauri-portfolio
 Email: gauritichkule@gmail.com
+LinkedIn: https://www.linkedin.com/in/gauritichkule
 CV: https://kaalabairava1234-ops.github.io/gauri-portfolio/Gauri_Tichkule_CV.pdf
 
 ## Experience
+
+- Started her marketing journey in 2019 with a mystery-shopping internship.
 
 - B2B Marketing and CRM Intern, Navatech, United Kingdom (Jun 2026 – Aug 2026): optimised 15% of website content for AEO; established off-site brand profiles (Trustpilot) as external trust signals for AI search; authored 4+ blog posts a month for construction industry professionals; created the customer buyer journey that shaped the CRM set-up.
 - Executive, Media Planning and Buying, IPG Mediabrands, India (Jun 2024 – Sep 2025): planned and bought US national TV for Merck, Floor & Decor, Eggland's Best and Henkel; negotiated 100+ placements a quarter with 20+ networks and media partners, averaging a 10% saving per campaign; built 50+ media estimates in Media Ocean, cutting planning turnaround by 30%; bi-weekly GRP and unit-count analyses increased viewership engagement by 12%; 95% of activity on target and 97% client retention.
@@ -17,6 +20,20 @@ CV: https://kaalabairava1234-ops.github.io/gauri-portfolio/Gauri_Tichkule_CV.pdf
 - MSc Strategic Marketing, Cranfield University (Sep 2025 – Sep 2026), 15% merit scholarship. Thesis: Go-to-Market Strategy for Navatech's Intelligence Layer.
 - Bachelor of Business Management, City Premium College, India (Jun 2018 – Aug 2021), CGPA 9.4/10, specialising in marketing.
 - PG Certification in Digital Marketing, upGrad and MICA (Dec 2020 – Aug 2021).
+
+## Leadership
+
+- Careers Representative, Cranfield University: promoted career resources and workshops for the Cranfield careers team, mobilising 100+ students to weekly career workshops over a full year.
+- Social Media & Events Manager (Board Member), Art & Craft Society: managed social media and event promotion and organised 5+ open campus events.
+- Event Manager, Hult Prize: managed five campus events across every round of the global student entrepreneurship competition.
+
+## Research
+
+- MSc thesis, Cranfield University (2026): "Go-to-Market Strategy for Navatech's Intelligence Layer". It studied how trust affects whether construction companies and site workers would adopt Navatech's AI safety product. A survey of 43 people found that overall trust, rather than any one factor alone, most influenced willingness to adopt; the resulting go-to-market strategy focuses on earning trust from both buyers and frontline workers.
+
+## Career direction
+
+Open to HR marketing, marketing consulting and B2B marketing roles.
 
 ## From the MSc
 
@@ -31,5 +48,4 @@ CV: https://kaalabairava1234-ops.github.io/gauri-portfolio/Gauri_Tichkule_CV.pdf
 
 ## Pages
 
-- Home (story, impact, case studies, journal, contact): https://kaalabairava1234-ops.github.io/gauri-portfolio/
-- Full record (experience, education, skills, leadership): https://kaalabairava1234-ops.github.io/gauri-portfolio/work
+- Portfolio (journey, experience, leadership, research, about, contact): https://kaalabairava1234-ops.github.io/gauri-portfolio/
