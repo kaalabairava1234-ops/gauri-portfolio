@@ -224,14 +224,14 @@ export const leadership: LeadershipRole[] = [
     org: "Art & Craft Society · Board Member",
     detail: "Managed the society’s social media and event promotion, and organised open campus events for students across the university.",
     stat: { value: "5+", label: "open campus events" },
-    skills: ["Social media", "Event promotion", "Event management"],
+    skills: ["Social media", "Event promotion", "People management", "Organisational management"],
   },
   {
     title: "Event Manager",
     org: "Hult Prize",
     detail: "Managed five campus events across every round of the global student entrepreneurship competition, from the introduction to the final.",
     stat: { value: "5", label: "campus events, intro to final" },
-    skills: ["Event management", "Programme coordination"],
+    skills: ["Social media", "Team leadership", "Communication", "Negotiation"],
   },
 ];
 
